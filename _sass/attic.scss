@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+$background-color-primary: #ffffff;
+$background-color-second: #f2f2f2;
+
+$color-attic-primary: #334159;
+$color-text: #343434;
+
+$font-base: 'Roboto', sans-serif;
+$font-title: 'PT Sans', sans-serif;
+
+
+@import
+    "attic/base",
+    "attic/header"
+;

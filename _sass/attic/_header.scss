@@ -1,0 +1,24 @@
+header {
+    padding-top: 6rem;
+    padding-bottom: 6rem; 
+    font-family: $font-title;
+    text-align: center;
+
+    #logo {
+        margin-bottom: 1rem;
+        font-size: 3rem;
+        letter-spacing: 15px;
+        font-variant-ligatures: none;
+        text-transform: uppercase;
+
+        &::first-letter {
+            color: $color-attic-primary;
+        }
+    }
+
+    #subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 0.2rem;
+        font-variant-ligatures: none;
+    }
+}
