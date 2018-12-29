@@ -1,32 +1,46 @@
 ---
 layout: default
 ---
-
 <div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
 
-  {{ content }}
+    {{ content }}
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
+    {%- if site.posts.size > 0 -%}
+
+        <div class="articles container">
+            <div class="row">
+            {%- for post in site.posts -%}
+                {%- assign date_format = site.attic.date_format | default: "%b %-d, %Y" -%}
+                {%- if forloop.first -%}
+                    {%- assign col = 'col-md-12' -%}
+                    {%- assign cover = post.cover | prepend: site.baseurl_img -%}
+                {%- else -%}
+                    {%- assign col = 'col-xl-4 col-lg-6' -%}
+                    {%- assign cover = post.cover | prepend: 'thumb_' | prepend: site.baseurl_img -%}
+                {%- endif -%}
+
+                <div class="post {{ col }}">
+                    <article>
+                        <a href="{{ post.url | relative_url }}">
+                            <div class="post-card"
+                            {%- if post.cover -%}
+                                    style="background-image: url('{{ cover }}');"
+                            {%- endif -%}
+                            >
+                                <span class="date">{{ post.date | date: date_format }}</span>
+                            </div>
+                        </a>
+                        <div class="information">
+                            <a href="{{ post.url | relative_url }}">
+                                <h3 class="title">{{ post.title | escape }}</h3>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+            {%- endfor -%}
+            </div>
+        </div>
 
   {%- endif -%}
 
