@@ -4,7 +4,7 @@ header {
     font-family: $font-title;
     text-align: center;
 
-    #logo {
+    .logo {
         margin-bottom: 0.5rem;
         font-size: 4rem;
         letter-spacing: 15px;
@@ -16,7 +16,7 @@ header {
         }
     }
 
-    #subtitle {
+    .subtitle {
         font-size: 1.1rem;
         letter-spacing: 0.3rem;
         font-variant-ligatures: none;
